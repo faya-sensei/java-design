@@ -4,6 +4,13 @@ The Factory Pattern is one of the most commonly used design patterns in Java.
 It provides a way to create objects, separating the process of object creation
 from the process of using the objects.
 
+## Introduction
+
+In language localization, we often encounter formats like `en-US` for American
+English or `en-GB` for British English. Here, we will implement a language
+loader that correctly loads either the American English or British English
+instance based on the given input.
+
 ## Todo
 
 1. Implement the **abstract product** `ILanguage` interface with classes like
