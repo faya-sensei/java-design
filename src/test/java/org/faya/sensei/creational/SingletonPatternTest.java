@@ -34,7 +34,7 @@ class SingletonPatternTest {
                 .mapToObj(i -> CompletableFuture.supplyAsync(DoubleLockSingleton::getInstance))
                 .toList();
 
-        final DoubleLockSingleton firstInstance = futures.getFirst().get(5, TimeUnit.SECONDS);
+        final DoubleLockSingleton firstInstance = futures.get(0).get(5, TimeUnit.SECONDS);
 
         for (int i = 1; i < 32; i++) {
             final DoubleLockSingleton instance = futures.get(i).get();

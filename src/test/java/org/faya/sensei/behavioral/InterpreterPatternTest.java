@@ -18,8 +18,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class InterpreterPatternTest {
 
     private static Class<? extends ISQLExpression> selectExpressionClass;
-    private static List<SQLRow> userData = List.of(
-            new SQLRow(Map.of("name", "Billy", "age", 48, "quote", "戒の心、赞の心、许の心")), // R.I.P
+    private static final List<SQLRow> userData = List.of(
+            new SQLRow(Map.of("name", "Billy", "age", 48, "quote", "As we can!")), // R.I.P
             new SQLRow(Map.of("name", "Van", "age", 51, "quote", "The deep dark fantasy!"))
     );
 
@@ -62,7 +62,7 @@ public class InterpreterPatternTest {
         final List<SQLRow> rows = result.getRows();
 
         assertEquals(1, rows.size());
-        assertEquals(new SQLRow(Map.of("name", "Billy", "quote", "戒の心、赞の心、许の心")), rows.getFirst());
+        assertEquals(new SQLRow(Map.of("name", "Billy", "quote", "As we can!")), rows.get(0));
     }
 
     @Test
