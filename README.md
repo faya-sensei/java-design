@@ -94,15 +94,49 @@ positions, can then be applied without the need for reloading.
 
 ## Structural Patterns
 
-These patterns focus on the composition and relationships between objects and
-aim to solve how to build flexible and reusable structures of classes and
-objects.
+Structural design patterns focus on the composition and relationships between
+objects and aim to solve how to build flexible and reusable structures of
+classes and objects.
 
 ### 1. Adapter Pattern
+
+The Adapter Pattern serves as a bridge between two incompatible interfaces and
+is categorized as a structural design pattern. It achieves this by transforming
+the interface of a given class into another interface that the client expects,
+thereby enabling classes that would otherwise be unable to cooperate to function
+together seamlessly.
+
+The goal of the task is to design a system that supports both a JDK-based
+compressor and an external compressor. The adapter should provide a unified
+interface, abstracting away the differences between the compression
+implementations, while ensuring ease of integration and the capability to load
+multiple sub-adapters dynamically.
 
 ### 2. Bridge Pattern
 
 ### 3. Composite Pattern
+
+The Composite Pattern is used to treat a group of similar objects as a single
+object. The Composite Pattern organizes objects in a tree structure to represent
+both the part-whole hierarchy. This type of design pattern belongs to the
+structural patterns category, as it creates a tree structure of object groups.
+
+In this guide, we will illustrate the Composite Pattern using a 2D rendering
+system as an example. We'll represent individual shapes, like circles, as well
+as complex compositions, or scenes, made up of multiple shapes. By leveraging
+Signed Distance Functions (SDFs), we can define the shapes mathematically and
+combine them into more intricate structures, such as multi-shape scenes.
+
+1. Implement specific shapes such as circle based on `IShape` interface. The SDF
+   for a circle calculates the signed distance from a point (x, y) to the
+   circle's edge using the following formula:
+   $\text{SDF}(x, y) = \sqrt{(x - \text{centerX})^2 + (y - \text{centerY})^2} - r$
+
+2. Create a Scene that represents a composite of shapes. When calculating the
+   SDF for the scene, it loops through each shape and determines the minimum
+   distance from the point to all the shapes.
+
+More information: https://www.shadertoy.com/view/3ltSW2
 
 ### 4. Criteria Pattern
 
@@ -116,9 +150,9 @@ objects.
 
 ## Behavioral Patterns
 
-These patterns focus on communication and interaction between objects and aim to
-solve the distribution of responsibilities and the encapsulation of algorithms
-between objects.
+Behavioral design patterns focus on communication and interaction between
+objects and aim to solve the distribution of responsibilities and the
+encapsulation of algorithms between objects.
 
 ### 1. Chain of Responsibility Pattern
 
